@@ -45,3 +45,8 @@ a span {
 a:hover span {
   transform: translate3d(-200%, 0, 0);
 }
+
+span {
+  font-size: 1.3rem;
+  font-weight: 800;
+}

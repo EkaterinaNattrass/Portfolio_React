@@ -22,8 +22,8 @@ export default function Profile() {
               backgroundSize: "contain",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
-              width: "25rem",
-              height: "25rem",
+              width: "27rem",
+              height: "27rem",
               margin: "0 auto",
             }}
           />
