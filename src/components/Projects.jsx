@@ -31,9 +31,9 @@ const itemData = [
 export default function Projects() {
   return (
      <Box sx={{ height: "100vh", backgroundColor: "#f3f3f3" }}>
-      <ImageList sx={{ width: '100%' }} cols={2} rowHeight={'50%'}>
+      <ImageList sx={{ width: '100%' }} cols={2} rowHeight={200}>
       {itemData.map((item) => (
-        <CardActionArea>
+        <CardActionArea key={item.img}>
                  <ImageListItem key={item.img}>
           <img
             srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
