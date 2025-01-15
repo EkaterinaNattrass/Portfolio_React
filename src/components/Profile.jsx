@@ -14,7 +14,7 @@ export default function Profile() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          position: "relative", // Required for positioning the image
+          position: "relative", 
           overflow: "hidden",
         }}
       >
@@ -38,7 +38,7 @@ export default function Profile() {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          position: "relative", // Required for positioning the image
+          position: "relative", 
           overflow: "hidden",
         }}
       >
