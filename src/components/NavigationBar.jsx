@@ -7,11 +7,12 @@ export default function NavigationBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar color="inherit">
-        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-          <NavLink style={{ textDecoration: "none" }} to="/"><Typography sx={{ fontFamily: 'Quicksand', fontWeight: 'bold', color: '#4e597b' }}>EKATERINA &#60; &#47; &#62;  NATTRASS</Typography></NavLink>
-          <NavLink to="about" style={{ textDecoration: "none" }}><Typography sx={{ fontFamily: 'Quicksand', fontWeight: 'bold', color: '#4e597b' }}>&#47;&#47; ABOUT</Typography></NavLink>
-          <NavLink to="projects" style={{ textDecoration: "none" }}><Typography sx={{ fontFamily: 'Quicksand', fontWeight: 'bold', color: '#4e597b' }}>&#47;&#47; PROJECTS</Typography></NavLink>
-          <NavLink to="contact" style={{ textDecoration: "none" }}><Typography sx={{ fontFamily: 'Quicksand', fontWeight: 'bold', color: '#4e597b' }}>&#47;&#47; CONTACT</Typography></NavLink>
+        <Toolbar sx={{ display: "flex", justifyContent: "space-between",
+         }}>
+          <NavLink style={{ textDecoration: "none" }} to="/"><Typography sx={{ fontFamily: 'Quicksand', fontWeight: 'bold', color: '#545454' }}>EKATERINA NATTRASS</Typography></NavLink>
+          <NavLink to="about" style={{ textDecoration: "none" }}><Typography sx={{ fontFamily: 'Quicksand', fontWeight: 'bold', color: '#545454' }}>ABOUT</Typography></NavLink>
+          <NavLink to="Molly" style={{ textDecoration: "none" }}><Typography sx={{ fontFamily: 'Quicksand', fontWeight: 'bold', color: '#545454' }}>MOLLY</Typography></NavLink>
+          <NavLink to="contact" style={{ textDecoration: "none" }}><Typography sx={{ fontFamily: 'Quicksand', fontWeight: 'bold', color: '#545454' }}>CONTACTS</Typography></NavLink>
         </Toolbar>
       </AppBar>
     </Box>
