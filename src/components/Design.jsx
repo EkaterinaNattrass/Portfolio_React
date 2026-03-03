@@ -1,84 +1,100 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Typography, Button } from "@mui/material";
 import NavigationBar from "./NavigationBar";
-import SwipeableViews from 'react-swipeable-views';
-import { autoPlay } from 'react-swipeable-views-utils';
+import SwipeableViews from "react-swipeable-views";
 
 const slides = [
   {
-    image: '/images/calm.png',
-    text: 'Calm when you need it',
+    type: "image",
+    image: "/images/calm.png",
+    text: "Calm when you need it",
   },
   {
-    image: '/images/quirky.png',
-    text: 'Quirky when you don’t',
+    type: "image",
+    image: "/images/quirky.png",
+    text: "Quirky when you don’t",
+  },
+  {
+    type: "box",
+    text: "Two moods. One studio.",
+    showCTA: true,
   },
 ];
 
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
-
 export default function Design() {
-  return (
-    <Box
-      sx={{
-        width: "100%",
-        display: "flex",
-        height: "95vh",
-        paddingTop: "5rem",
-      }}
-    >
-      <NavigationBar />
-       <Box sx={{ position: 'relative', height: '100vh', width: '100%' }}>
-      <AutoPlaySwipeableViews interval={4000} enableMouseEvents>
-        {slides.map((slide, index) => (
-          <Box
-            key={index}
-            sx={{
-              height: '100vh',
-              backgroundImage: `url(${slide.image})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            <Typography
-              variant="h2"
-              sx={{
-                color: 'white',
-                textAlign: 'center',
-                textShadow: '0 0 10px rgba(0,0,0,0.5)',
-              }}
-            >
-              {slide.text}
-            </Typography>
-          </Box>
-        ))}
-      </AutoPlaySwipeableViews>
+  const [index, setIndex] = useState(0);
 
-      <Box
-        sx={{
-          position: 'absolute',
-          bottom: 80,
-          width: '100%',
-          textAlign: 'center',
-        }}
+  // Auto-advance slides until last one
+  useEffect(() => {
+    if (index < slides.length - 1) {
+      const timer = setTimeout(() => setIndex(index + 1), 3000); // 4s interval
+      return () => clearTimeout(timer);
+    }
+  }, [index]);
+
+  return (
+    <Box sx={{ position: "relative", height: "100vh", width: "100%" }}>
+      <NavigationBar />
+      <SwipeableViews
+        index={index}
+        onChangeIndex={(i) => setIndex(i)}
+        enableMouseEvents
       >
-        <Typography variant="h5" color="white">
-          Two moods. One studio.
-        </Typography>
-        <Button variant="contained" sx={{ mt: 2 }}>
-          Explore the Collection
-        </Button>
-      </Box>
-    </Box>
-    {/* <Typography>
-        Soft North is my visual journal. <br />I create calm, atmospheric art
-        inspired by northern nature, quiet spaces, and soft emotion — designed
-        to bring harmony into modern interiors and everyday life.
-      </Typography>
-      <Typography>But not everything has to be calm. Sometimes it’s fun, quirky, and unexpectedly playful — and that’s exactly the point.</Typography> */}  
+        {slides.map((slide, i) => {
+          if (slide.type === "image") {
+            return (
+              <Box
+                key={i}
+                sx={{
+                  height: "100vh",
+                  backgroundImage: `url(${slide.image})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <Typography
+                  variant="h2"
+                  sx={{
+                    color: "white",
+                    textAlign: "center",
+                    textShadow: "0 0 10px rgba(0,0,0,0.5)",
+                  }}
+                >
+                  {slide.text}
+                </Typography>
+              </Box>
+            );
+          } else if (slide.type === "box") {
+            return (
+              <Box
+                key={i}
+                sx={{
+                  height: "100vh",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  bgcolor: "#f5f5f5",
+                  textAlign: "center",
+                }}
+              >
+                <Typography variant="h3" sx={{ mb: 3 }}>
+                  {slide.text}
+                </Typography>
+                {slide.showCTA && (
+                  <Button variant="contained" size="large">
+                    Explore the Collection
+                  </Button>
+                )}
+              </Box>
+            );
+          }
+          return null;
+        })}
+      </SwipeableViews>
     </Box>
   );
 }
