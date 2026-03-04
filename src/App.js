@@ -6,6 +6,7 @@ import Design from "./components/Design";
 import Shop from "./components/Shop";
 import Contacts from "./components/Contacts";
 import Collection from "./components/Collection";
+import ProjectDetail from "./components/ProjectDetail";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/shop" element={<Shop />}></Route>
         <Route path="/contacts" element={<Contacts />}></Route>
         <Route path="/collection" element={<Collection />}></Route>
+        <Route path="/collection/:id" element={<ProjectDetail />}></Route>
       </Routes>
     </Router>
   );
