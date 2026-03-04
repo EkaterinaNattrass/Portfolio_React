@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+
 import { Box, Typography, Button } from "@mui/material";
 import NavigationBar from "./NavigationBar";
 import SwipeableViews from "react-swipeable-views";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const slides = [
   {
@@ -77,16 +79,43 @@ export default function Design() {
                   flexDirection: "column",
                   justifyContent: "center",
                   alignItems: "center",
-                  bgcolor: "#f5f5f5",
+                  bgcolor: "#3a2f25",
                   textAlign: "center",
                 }}
               >
-                <Typography variant="h3" sx={{ mb: 3 }}>
+                <Typography variant="h3" sx={{ mb: 3, color: "white" }}>
                   {slide.text}
                 </Typography>
                 {slide.showCTA && (
-                  <Button variant="contained" size="large">
+                  <Button
+                    variant="text"
+                    size="large"
+      
+                    sx={{
+                      color: "white",
+                      "&:hover": {
+                        backgroundColor: "transparent",
+                      },
+                      "&::after": {
+                        content: '""',
+                        position: "absolute",
+                        left: 0,
+                        bottom: 4,
+                        width: "100%",
+                        height: "1px",
+                        backgroundColor: "white",
+                        transform: "scaleX(0)",
+                        transformOrigin: "left",
+                        transition: "transform 0.45s cubic-bezier(0.4, 0, 0.2, 1)",
+                      },
+
+                      "&:hover::after": {
+                        transform: "scaleX(1)",
+                      },
+                    }}
+                  >
                     Explore the Collection
+                    <ArrowForwardIosIcon sx={{ ml: 1, fontSize: "small" }} />
                   </Button>
                 )}
               </Box>

@@ -5,6 +5,7 @@ import FrontEnd from "./components/FrontEnd";
 import Design from "./components/Design";
 import Shop from "./components/Shop";
 import Contacts from "./components/Contacts";
+import Collection from "./components/Collection";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/design" element={<Design />}></Route>
         <Route path="/shop" element={<Shop />}></Route>
         <Route path="/contacts" element={<Contacts />}></Route>
+        <Route path="/collection" element={<Collection />}></Route>
       </Routes>
     </Router>
   );
