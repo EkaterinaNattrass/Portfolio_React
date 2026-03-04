@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from "react";
-
+import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { Box, Typography, Button } from "@mui/material";
 import NavigationBar from "./NavigationBar";
-import SwipeableViews from "react-swipeable-views";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+
+import "swiper/css";
 
 const slides = [
   {
@@ -24,29 +28,33 @@ const slides = [
 ];
 
 export default function Design() {
-  const [index, setIndex] = useState(0);
-
-  // Auto-advance slides until last one
-  useEffect(() => {
-    if (index < slides.length - 1) {
-      const timer = setTimeout(() => setIndex(index + 1), 3000); // 4s interval
-      return () => clearTimeout(timer);
-    }
-  }, [index]);
+  const navigate = useNavigate();
+  const swiperRef = useRef(null);
 
   return (
     <Box sx={{ position: "relative", height: "100vh", width: "100%" }}>
       <NavigationBar />
-      <SwipeableViews
-        index={index}
-        onChangeIndex={(i) => setIndex(i)}
-        enableMouseEvents
+
+      <Swiper
+        modules={[Autoplay]}
+        slidesPerView={1}
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: true,
+        }}
+        onSlideChange={(swiper) => {
+          // stop autoplay on last slide
+          if (swiper.activeIndex === slides.length - 1) {
+            swiper.autoplay.stop();
+          }
+        }}
+        style={{ height: "100%" }}
       >
-        {slides.map((slide, i) => {
-          if (slide.type === "image") {
-            return (
+        {slides.map((slide, i) => (
+          <SwiperSlide key={i}>
+            {slide.type === "image" ? (
               <Box
-                key={i}
                 sx={{
                   height: "100vh",
                   backgroundImage: `url(${slide.image})`,
@@ -68,11 +76,8 @@ export default function Design() {
                   {slide.text}
                 </Typography>
               </Box>
-            );
-          } else if (slide.type === "box") {
-            return (
+            ) : (
               <Box
-                key={i}
                 sx={{
                   height: "100vh",
                   display: "flex",
@@ -86,27 +91,33 @@ export default function Design() {
                 <Typography variant="h3" sx={{ mb: 3, color: "white" }}>
                   {slide.text}
                 </Typography>
+
                 {slide.showCTA && (
                   <Button
                     variant="text"
                     size="large"
-      
+                    onClick={() => navigate("/collection")}
                     sx={{
                       color: "white",
+                      position: "relative",
+                      textTransform: "none",
+
                       "&:hover": {
                         backgroundColor: "transparent",
                       },
+
                       "&::after": {
                         content: '""',
                         position: "absolute",
                         left: 0,
-                        bottom: 4,
+                        bottom: 2,
                         width: "100%",
                         height: "1px",
                         backgroundColor: "white",
                         transform: "scaleX(0)",
                         transformOrigin: "left",
-                        transition: "transform 0.45s cubic-bezier(0.4, 0, 0.2, 1)",
+                        transition:
+                          "transform 0.45s cubic-bezier(0.4, 0, 0.2, 1)",
                       },
 
                       "&:hover::after": {
@@ -119,11 +130,10 @@ export default function Design() {
                   </Button>
                 )}
               </Box>
-            );
-          }
-          return null;
-        })}
-      </SwipeableViews>
+            )}
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </Box>
   );
 }
