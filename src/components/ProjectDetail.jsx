@@ -1,7 +1,8 @@
-import { Box, Card, Typography } from "@mui/material";
+import { Box, Card, Typography, Button } from "@mui/material";
 import NavigationBar from "./NavigationBar";
 import { useParams } from "react-router-dom";
 import { projects } from "../data/projects";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 export default function ProjectDetail() {
   const { id } = useParams();
@@ -10,6 +11,48 @@ export default function ProjectDetail() {
   return (
     <Box sx={{ width: "100%" }}>
       <NavigationBar />
+      <Button
+        variant="text"
+        size="large"
+        onClick={() => window.history.back()}
+        sx={{
+          color: "#3a2f25",
+          margin: "5rem",
+          textTransform: "none",
+          fontFamily: "quicksand",
+          fontWeight: "bold",
+
+          "&:hover": {
+            backgroundColor: "transparent",
+          },
+
+          "&::after": {
+            content: '""',
+            position: "absolute",
+            left: 0,
+            bottom: 2,
+            width: "100%",
+            height: "1.5px",
+            backgroundColor: "#3a2f25",
+            transform: "scaleX(0)",
+            transformOrigin: "left",
+            transition: "transform 0.45s cubic-bezier(0.4, 0, 0.2, 1)",
+          },
+
+          "&:hover::after": {
+            transform: "scaleX(1)",
+          },
+        }}
+      >
+        <ArrowBackIosIcon
+          sx={{
+            cursor: "pointer",
+            color: "#3a2f25",
+            fontSize: "1rem",
+          }}
+        />
+        BACK TO COLLECTION
+      </Button>
 
       <Card
         sx={{
