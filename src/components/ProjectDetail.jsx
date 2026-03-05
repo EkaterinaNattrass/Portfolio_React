@@ -76,25 +76,25 @@ export default function ProjectDetail() {
             gap: 2,
           }}
         >
-          <Typography variant="h3" sx={{ fontFamily: "work sans" }}>
+          <Typography variant="h3" sx={{ fontFamily: "quicksand" }}>
             {project.title}
           </Typography>
-          <Typography variant="h6" sx={{ fontFamily: "work sans" }}>
+          <Typography variant="h6" sx={{ fontFamily: "quicksand" }}>
             {project.idea}
           </Typography>
-          <Typography variant="h6" sx={{ fontFamily: "work sans" }}>
+          <Typography variant="h6" sx={{ fontFamily: "quicksand" }}>
             Design decisions
           </Typography>
           {project.designDecisions.map((decision, index) => (
             <Typography
               key={index}
               variant="body1"
-              sx={{ fontFamily: "work sans" }}
+              sx={{ fontFamily: "quicksand" }}
             >
               - {decision}
             </Typography>
           ))}
-          <Typography variant="h6" sx={{ fontFamily: "work sans" }}>
+          <Typography variant="h6" sx={{ fontFamily: "quicksand" }}>
             Outcome
           </Typography>
           <Typography sx={{ fontFamily: "work sans" }}>

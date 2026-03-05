@@ -63,13 +63,13 @@ export default function Collection() {
                   alt={project.title}
                 />
                 <CardContent>
-                  <Typography variant="h6" sx={{ fontFamily: "work sans" }}>
+                  <Typography variant="h6" sx={{ fontFamily: "quicksand" }}>
                     {project.title}
                   </Typography>
                   <Typography
                     variant="body2"
                     color="text.secondary"
-                    sx={{ fontFamily: "work sans" }}
+                    sx={{ fontFamily: "quicksand" }}
                   >
                     {project.concept}
                   </Typography>
