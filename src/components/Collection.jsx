@@ -14,11 +14,11 @@ import { projects } from "../data/projects";
 export default function Collection() {
   const navigate = useNavigate();
   return (
-    <Box sx={{ position: "relative", height: "100vh", width: "100%" }}>
+    <Box>
       <NavigationBar />
-      <Grid container spacing={4}>
+      <Grid container spacing={4} sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "95vh", padding: '2rem' }}>
         {projects.map((project) => (
-          <Grid item xs={12} sm={6} md={4} key={project.id}>
+          <Grid item xs={12} sm={6} md={3} key={project.id}>
             <Card
               sx={{ height: "100%" }}
               onClick={() => navigate(`/collection/${project.id}`)}

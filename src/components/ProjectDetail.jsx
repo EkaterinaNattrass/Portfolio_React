@@ -10,7 +10,7 @@ export default function ProjectDetail() {
   return (
     <Box sx={{ position: "relative", height: "100vh", width: "100%" }}>
       <NavigationBar />
-      <Container>
+      <Container >
         <Card>
           <Box
             component="img"
