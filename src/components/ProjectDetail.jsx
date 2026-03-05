@@ -17,16 +17,16 @@ export default function ProjectDetail() {
             src="/images/calm.png"
             sx={{ width: "100%", mb: 6,  }}
           />
-          <Typography variant="h3">{project.title}</Typography>
-          <Typography variant="h6">{project.idea}</Typography>
-          <Typography variant="h6">Design decisions</Typography>
+          <Typography variant="h3" sx={{ fontFamily: 'work sans'}}>{project.title}</Typography>
+          <Typography variant="h6" sx={{ fontFamily: 'work sans'}}>{project.idea}</Typography>
+          <Typography variant="h6" sx={{ fontFamily: 'work sans'}}>Design decisions</Typography>
           {project.designDecisions.map((decision, index) => (
-            <Typography key={index} variant="body1">
+            <Typography key={index} variant="body1" sx={{ fontFamily: 'work sans'}}>
               - {decision}
             </Typography>
           ))}
-          <Typography variant="h6">Outcome</Typography>
-          <Typography>{project.outcome}</Typography>
+          <Typography variant="h6" sx={{ fontFamily: 'work sans'}}>Outcome</Typography>
+          <Typography sx={{ fontFamily: 'work sans'}}>{project.outcome}</Typography>
         </Card>
       </Container>
     </Box>

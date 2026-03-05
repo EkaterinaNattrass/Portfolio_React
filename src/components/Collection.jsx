@@ -29,8 +29,8 @@ export default function Collection() {
                 alt={project.title}
               />
               <CardContent>
-                <Typography variant="h6">{project.title}</Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="h6" sx={{ fontFamily: 'work sans'}}>{project.title}</Typography>
+                <Typography variant="body2" color="text.secondary" sx={{ fontFamily: 'work sans'}}>
                   {project.concept}
                 </Typography>
               </CardContent>
