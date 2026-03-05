@@ -9,7 +9,7 @@ export default function ProjectDetail() {
   const project = projects.find((p) => p.id === Number(id));
   if (!project) return <p>Project not found</p>;
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box sx={{ width: "100%", height: "95vh"}}>
       <NavigationBar />
       <Button
         variant="text"
@@ -17,7 +17,7 @@ export default function ProjectDetail() {
         onClick={() => window.history.back()}
         sx={{
           color: "#3a2f25",
-          margin: "5rem",
+          margin: "5rem 0 1.5rem 5rem",
           textTransform: "none",
           fontFamily: "quicksand",
           fontWeight: "bold",
@@ -56,10 +56,9 @@ export default function ProjectDetail() {
 
       <Card
         sx={{
-          height: { sm: "auto", md: "90vh" },
-          margin: "5rem",
+          height: { sm: "auto", md: "80vh" },
+          margin: "0 5rem 5rem 5rem",
           borderRadius: 4,
-          mt: 4,
           border: "none",
           boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
           display: "flex",
@@ -76,10 +75,10 @@ export default function ProjectDetail() {
             gap: 2,
           }}
         >
-          <Typography variant="h3" sx={{ fontFamily: "quicksand" }}>
+          <Typography  sx={{ fontSize: { sm: "1.5rem", md: "2rem" }, fontFamily: "quicksand" }}>
             {project.title}
           </Typography>
-          <Typography variant="h6" sx={{ fontFamily: "quicksand" }}>
+          <Typography  sx={{ fontSize: { sm: "1rem", md: "1.5rem" }, fontFamily: "quicksand" }}>
             {project.idea}
           </Typography>
           <Typography variant="h6" sx={{ fontFamily: "quicksand" }}>
@@ -97,7 +96,7 @@ export default function ProjectDetail() {
           <Typography variant="h6" sx={{ fontFamily: "quicksand" }}>
             Outcome
           </Typography>
-          <Typography sx={{ fontFamily: "work sans" }}>
+          <Typography variant="body1" sx={{ fontFamily: "quicksand" }}>
             {project.outcome}
           </Typography>
         </Box>
