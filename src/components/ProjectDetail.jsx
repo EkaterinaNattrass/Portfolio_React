@@ -10,33 +10,23 @@ export default function ProjectDetail() {
   return (
     <Box sx={{ position: "relative", height: "100vh", width: "100%" }}>
       <NavigationBar />
-      <Container >
-        <Card>
+      <Container>
+        <Card sx={{ borderRadius: 4, mt: 4, border: "none", boxShadow: "0 4px 20px rgba(0,0,0,0.1)",}}>
           <Box
             component="img"
             src="/images/calm.png"
-            sx={{ width: "100%", mb: 6 }}
+            sx={{ width: "100%", mb: 6,  }}
           />
           <Typography variant="h3">{project.title}</Typography>
-
-          <Typography variant="subtitle1" color="text.secondary">
-            {project.concept}
-          </Typography>
-          <Typography variant="h6">Idea</Typography>
-          <Typography>
-            A more detailed explanation of the project idea, including the
-          </Typography>
+          <Typography variant="h6">{project.idea}</Typography>
           <Typography variant="h6">Design decisions</Typography>
-
-          <ul>
-            <li>Muted palette to reduce visual noise</li>
-            <li>Negative space to create calm</li>
-            <li>Soft typography to support the mood</li>
-          </ul>
+          {project.designDecisions.map((decision, index) => (
+            <Typography key={index} variant="body1">
+              - {decision}
+            </Typography>
+          ))}
           <Typography variant="h6">Outcome</Typography>
-          <Typography>
-            Designed for modern interiors and quiet daily moments.
-          </Typography>
+          <Typography>{project.outcome}</Typography>
         </Card>
       </Container>
     </Box>

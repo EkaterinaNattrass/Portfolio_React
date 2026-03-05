@@ -20,7 +20,7 @@ export default function Collection() {
         {projects.map((project) => (
           <Grid item xs={12} sm={6} md={3} key={project.id}>
             <Card
-              sx={{ height: "100%" }}
+             sx={{ borderRadius: 4, mt: 4, border: "none", boxShadow: "0 4px 20px rgba(0,0,0,0.1)",}}
               onClick={() => navigate(`/collection/${project.id}`)}
             >
               <CardMedia
