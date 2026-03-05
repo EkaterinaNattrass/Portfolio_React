@@ -101,6 +101,9 @@ export default function Design() {
                       color: "white",
                       position: "relative",
                       textTransform: "none",
+                      fontFamily: "quicksand",
+                      fontSize: { xs: "0.5rem", sm: "1rem" },
+                      
 
                       "&:hover": {
                         backgroundColor: "transparent",
@@ -125,7 +128,7 @@ export default function Design() {
                       },
                     }}
                   >
-                    Explore the Collection
+                    EXPLORE THE COLLECTION
                     <ArrowForwardIosIcon sx={{ ml: 1, fontSize: "small" }} />
                   </Button>
                 )}
