@@ -66,11 +66,12 @@ export default function Design() {
                 }}
               >
                 <Typography
-                  variant="h2"
+                  variant="h3"
                   sx={{
                     color: "white",
                     textAlign: "center",
                     textShadow: "0 0 10px rgba(0,0,0,0.5)",
+                    fontFamily: "quicksand",
                   }}
                 >
                   {slide.text}
@@ -88,7 +89,7 @@ export default function Design() {
                   textAlign: "center",
                 }}
               >
-                <Typography variant="h3" sx={{ mb: 3, color: "white" }}>
+                <Typography variant="h3" sx={{ mb: 3, color: "white", fontFamily: "quicksand", }}>
                   {slide.text}
                 </Typography>
 
@@ -103,7 +104,6 @@ export default function Design() {
                       textTransform: "none",
                       fontFamily: "quicksand",
                       fontSize: { xs: "0.5rem", sm: "1rem" },
-                      
 
                       "&:hover": {
                         backgroundColor: "transparent",
@@ -128,7 +128,7 @@ export default function Design() {
                       },
                     }}
                   >
-                    EXPLORE THE COLLECTION
+                    BEHIND THE DESIGN
                     <ArrowForwardIosIcon sx={{ ml: 1, fontSize: "small" }} />
                   </Button>
                 )}
