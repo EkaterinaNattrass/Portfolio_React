@@ -3,10 +3,26 @@ import { Box, Typography, Button, Card } from "@mui/material";
 import NavigationBar from "./NavigationBar";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { motion } from "framer-motion";
+import { websites } from "../data/websites";
 
 export default function FrontEnd() {
   const MotionBox = motion(Box);
   const MotionCard = motion(Card);
+
+  const boxVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.12,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   const containerVariants = {
     rest: {},
     hover: {},
@@ -39,24 +55,116 @@ export default function FrontEnd() {
         width: "100%",
         display: "flex",
         flexDirection: "column",
-        paddingTop: "5rem",
+        scrollBehavior: "smooth",
       }}
     >
       <NavigationBar />
-      <Card>
-        <Typography>
-          My expertise lies in designing and crafting responsive and visually
-          appealing websites using <span>Figma</span> for high fidelity
-          prototypes and the latest web technologies such as{" "}
-          <span>Bootstrap</span>, <span>Tailwind</span>,{" "}
-          <span>Material UI</span> and <span>React</span>. <br />
-          In my projects I also use <span>Node.js</span> and{" "}
-          <span>Express.js</span> to build an efficient backend infrastructure.{" "}
-          <br />I have experience working with <span>MongoDB</span>, a NoSQL
-          database. Feel free to explore my portfolio and get in touch to
-          discuss your next project!
-        </Typography>
-      </Card>
+      <Box
+        sx={{
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          px: 2,
+          background: "#f7f7f7",
+        }}
+      >
+        <MotionCard
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={boxVariants}
+          sx={{
+            maxWidth: 720,
+            width: "100%",
+            p: { xs: 4, md: 6 },
+            borderRadius: 4,
+            boxShadow: "0 20px 60px rgba(0,0,0,0.08)",
+          }}
+        >
+          {/* Title */}
+          <MotionBox variants={itemVariants}>
+            <Typography variant="h4" sx={{ mb: 3, fontFamily: "quicksand" }}>
+              {"{ About Me }"}
+            </Typography>
+          </MotionBox>
+
+          {/* Paragraph */}
+          <MotionBox variants={itemVariants}>
+            <Typography
+              sx={{
+                fontFamily: "quicksand",
+                lineHeight: 1.8,
+                fontSize: "1.05rem",
+                mb: 3,
+              }}
+            >
+              I design and build responsive, visually engaging websites using
+              Figma for high-fidelity prototyping and modern technologies such
+              as React , Material UI, Tailwind and Bootstrap.
+              <br />
+              <br />I also work with Node.js and Express.js to build efficient
+              backend infrastructure and have experience using MongoDB as a
+              NoSQL database.
+              <br />
+              <br />
+              Feel free to explore my portfolio and get in touch to discuss your
+              next project.
+            </Typography>
+          </MotionBox>
+
+          {/* Tech stack */}
+          <MotionBox
+            variants={containerVariants}
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 1,
+            }}
+          >
+            {[
+              "React",
+              "Material UI",
+              "Tailwind",
+              "Bootstrap",
+              "Node.js",
+              "Express.js",
+              "MongoDB",
+              "Figma",
+            ].map((tech) => (
+              <MotionBox key={tech} variants={itemVariants}>
+                <Box
+                  sx={{
+                    px: 1.6,
+                    py: 0.6,
+                    borderRadius: 2,
+                    fontSize: "0.8rem",
+                    background: "rgba(0,0,0,0.05)",
+                    fontFamily: "quicksand",
+                  }}
+                >
+                  {tech}
+                </Box>
+              </MotionBox>
+            ))}
+          </MotionBox>
+        </MotionCard>
+      </Box>
+
+      {websites.map((project) => (
+        <MotionBox
+          key={project.title}
+          initial="rest"
+          animate="rest"
+          whileHover="hover"
+          variants={containerVariants}
+          sx={{
+            position: "relative",
+            width: "100%",
+            overflow: "hidden",
+          }}
+        ></MotionBox>
+      ))}
 
       <MotionBox
         initial="rest"
