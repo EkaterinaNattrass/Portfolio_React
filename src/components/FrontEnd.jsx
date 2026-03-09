@@ -75,7 +75,7 @@ export default function FrontEnd() {
           src="/images/holidaze.png"
           alt="front page of holidaze website"
           variants={imageVariants}
-          transition={{ duration: 0.5, delay: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.75 }}
           sx={{
             width: "100%",
             height: { xs: 220, sm: 300, md: "95vh" },
@@ -87,7 +87,7 @@ export default function FrontEnd() {
         {/* Dark overlay */}
         <MotionBox
           variants={overlayVariants}
-          transition={{ duration: 0.4, delay: 0.5 }}
+          transition={{ duration: 0.4, delay: 0.75 }}
           sx={{
             position: "absolute",
             inset: 0,
@@ -101,7 +101,7 @@ export default function FrontEnd() {
           variants={cardVariants}
           transition={{
             duration: 0.35,
-            delay: 0.5,
+            delay: 0.75,
             ease: [0.4, 0, 0.2, 1],
           }}
           sx={{
@@ -181,7 +181,7 @@ export default function FrontEnd() {
           src="/images/rainy_days.png"
           alt="front page of rainy days website"
           variants={imageVariants}
-          transition={{ duration: 0.5, delay: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.75 }}
           sx={{
             width: "100%",
             height: { xs: 220, sm: 300, md: "95vh" },
@@ -193,7 +193,7 @@ export default function FrontEnd() {
         {/* Dark overlay */}
         <MotionBox
           variants={overlayVariants}
-          transition={{ duration: 0.4, delay: 0.5 }}
+          transition={{ duration: 0.4, delay: 0.75 }}
           sx={{
             position: "absolute",
             inset: 0,
@@ -207,7 +207,7 @@ export default function FrontEnd() {
           variants={cardVariants}
           transition={{
             duration: 0.35,
-            delay: 0.5,
+            delay: 0.75,
             ease: [0.4, 0, 0.2, 1],
           }}
           sx={{
@@ -290,7 +290,7 @@ export default function FrontEnd() {
           src="/images/museum.png"
           alt="front page of community science museum website"
           variants={imageVariants}
-          transition={{ duration: 0.5, delay: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.75 }}
           sx={{
             width: "100%",
             height: { xs: 220, sm: 300, md: "95vh" },
@@ -302,7 +302,7 @@ export default function FrontEnd() {
         {/* Dark overlay */}
         <MotionBox
           variants={overlayVariants}
-          transition={{ duration: 0.4, delay: 0.5 }}
+          transition={{ duration: 0.4, delay: 0.75 }}
           sx={{
             position: "absolute",
             inset: 0,
@@ -316,7 +316,7 @@ export default function FrontEnd() {
           variants={cardVariants}
           transition={{
             duration: 0.35,
-            delay: 0.5,
+            delay: 0.75,
             ease: [0.4, 0, 0.2, 1],
           }}
           sx={{
